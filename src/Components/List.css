@@ -76,14 +76,12 @@ span button {
     user-select: none;
 }
 .control{
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
+   display: flex;
+   gap: 12px;
+   margin-top: 1rem; 
+    
 }
-.checkButton{
-    position: relative;
-    left: 10px;
-}
+
 
 
 

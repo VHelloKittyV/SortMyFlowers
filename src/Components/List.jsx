@@ -1,5 +1,5 @@
 import "./List.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function List() {
     const [flowers, setFlowers] = useState([]);
@@ -8,6 +8,7 @@ export default function List() {
     const [editId, setEditId] = useState(null);
     const [history, setHistory] = useState([]);
     const [redoStack, setRedoStack] = useState([]);
+    const inputRef = useRef(null); // useRef to keep track of textarea
 
     const substring = "ферм";
 
@@ -106,6 +107,7 @@ export default function List() {
             setHistory([...history, { flowers, farmFlowers }]);
             setInputValue("");
             setRedoStack([]);
+            inputRef.current.focus(); // manually set focus to the textarea
 
             if (e.type === "click") {
                 e.preventDefault();
@@ -157,13 +159,14 @@ export default function List() {
 
     return (
         <>
-            <h4>Голандськи квіти</h4>
+            <h3>Голандськи квіти</h3>
             <ol>{listItems}</ol>
-            <h4>Фермерськи квіти</h4>
+            <h3>Фермерськи квіти</h3>
             <ol>{listItems2}</ol>
 
             <div className="inputBody">
                 <textarea
+                    ref={inputRef} // attach ref to the textarea
                     rows={2}
                     placeholder="Напечатай щось або вставь список"
                     value={inputValue}
