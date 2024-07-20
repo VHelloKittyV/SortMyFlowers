@@ -51,6 +51,8 @@ textarea{
     padding: 1rem;
     border-radius: 8px;
     background-color: transparent;
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
     user-select: unset;
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */

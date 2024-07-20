@@ -1,7 +1,7 @@
 import "./List.css";
 import { useState, useRef } from "react";
 
-export default function List() {
+export default function List({ currentDate }) {
     const [flowers, setFlowers] = useState([]);
     const [farmFlowers, setFarmFlowers] = useState([]);
     const [inputValue, setInputValue] = useState("");
@@ -151,9 +151,13 @@ export default function List() {
     };
 
     const handleCopy = () => {
-        const allFlowers = [...flowers, ...farmFlowers]
-            .map((flower) => flower.name)
-            .join("\n");
+        const allFlowers = [
+            `Дата: ${currentDate}`,
+            "Голандськи квіти:",
+            ...flowers.map((flower) => flower.name),
+            "Фермерськи квіти:",
+            ...farmFlowers.map((flower) => flower.name)
+        ].join("\n");
         navigator.clipboard.writeText(allFlowers);
     };
 
@@ -166,7 +170,7 @@ export default function List() {
 
             <div className="inputBody">
                 <textarea
-                    ref={inputRef} // attach ref to the textarea
+                    ref={inputRef} 
                     rows={2}
                     placeholder="Напечатай щось або вставь список"
                     value={inputValue}
