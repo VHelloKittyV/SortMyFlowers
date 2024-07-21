@@ -1,5 +1,6 @@
 import "./List.css";
 import { useState, useRef } from "react";
+import PropTypes from "prop-types";
 
 export default function List({ currentDate }) {
     const [flowers, setFlowers] = useState([]);
@@ -209,3 +210,7 @@ export default function List({ currentDate }) {
         </>
     );
 }
+
+List.propTypes = {
+    currentDate: PropTypes.string.isRequired,
+};
