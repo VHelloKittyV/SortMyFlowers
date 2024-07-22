@@ -9,9 +9,8 @@ export default function List({ currentDate }) {
     const [editId, setEditId] = useState(null);
     const [history, setHistory] = useState([]);
     const [redoStack, setRedoStack] = useState([]);
+    const [filter, setFilter] = useState("holland");
     const inputRef = useRef(null); // useRef to keep track of textarea
-
-    const substring = "ферм";
 
     function handleDeleteItem(id) {
         const newFlowers = flowers.filter((flower) => flower.id !== id);
@@ -26,7 +25,9 @@ export default function List({ currentDate }) {
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((flower) => (
             <li key={flower.id}>
-                <span onDoubleClick={() => handleEdit(flower.id)}>{flower.name}</span>
+                <span onDoubleClick={() => handleEdit(flower.id)}>
+                    {flower.name}
+                </span>
                 <button
                     style={{ userSelect: "none" }}
                     className="deleteItem"
@@ -46,7 +47,9 @@ export default function List({ currentDate }) {
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((flower) => (
             <li key={flower.id}>
-                <span onDoubleClick={() => handleEdit(flower.id)}>{flower.name}</span>
+                <span onDoubleClick={() => handleEdit(flower.id)}>
+                    {flower.name}
+                </span>
                 <button
                     style={{ userSelect: "none" }}
                     className="deleteItem"
@@ -94,7 +97,7 @@ export default function List({ currentDate }) {
 
                 names.forEach((name) => {
                     const newFlower = { id: Date.now() + Math.random(), name };
-                    if (name.toLowerCase().includes(substring.toLowerCase())) {
+                    if (filter === "farm") {
                         newFarmFlowers.push(newFlower);
                     } else {
                         newFlowers.push(newFlower);
@@ -157,7 +160,7 @@ export default function List({ currentDate }) {
             "Голандськи квіти:",
             ...flowers.map((flower) => flower.name),
             "Фермерськи квіти:",
-            ...farmFlowers.map((flower) => flower.name)
+            ...farmFlowers.map((flower) => flower.name),
         ].join("\n");
         navigator.clipboard.writeText(allFlowers);
     };
@@ -168,12 +171,32 @@ export default function List({ currentDate }) {
             <ol>{listItems}</ol>
             <h3>Фермерськи квіти</h3>
             <ol>{listItems2}</ol>
+            <fieldset>
+                <input
+                    type="radio"
+                    name="filter"
+                    id="holland"
+                    value="holland"
+                    checked={filter === "holland"}
+                    onChange={() => setFilter("holland")}
+                />
+                <label htmlFor="holland">Голандськи</label>
+                <input
+                    type="radio"
+                    name="filter"
+                    id="farm"
+                    value="farm"
+                    checked={filter === "farm"}
+                    onChange={() => setFilter("farm")}
+                />
+                <label htmlFor="farm">Фермерськи</label>
+            </fieldset>
 
             <div className="inputBody">
                 <textarea
-                    ref={inputRef} 
+                    ref={inputRef}
                     rows={2}
-                    placeholder="Напечатай щось або вставь список"
+                    placeholder="Напечатай або вставь список"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) =>
@@ -188,7 +211,9 @@ export default function List({ currentDate }) {
             </div>
             <div className="control">
                 <button type="button" onClick={handleUndo}>
-                    <span className="material-symbols-outlined">arrow_back</span>
+                    <span className="material-symbols-outlined">
+                        arrow_back
+                    </span>
                 </button>
                 <button type="button" onClick={handleRedo}>
                     <span className="material-symbols-outlined">
@@ -201,10 +226,14 @@ export default function List({ currentDate }) {
                     </span>
                 </button>
                 <button type="button" onClick={handleClear}>
-                    <span className="material-symbols-outlined">scan_delete</span>
+                    <span className="material-symbols-outlined">
+                        scan_delete
+                    </span>
                 </button>
                 <button type="button">
-                    <span className="material-symbols-outlined">event_note</span>
+                    <span className="material-symbols-outlined">
+                        event_note
+                    </span>
                 </button>
             </div>
         </>
