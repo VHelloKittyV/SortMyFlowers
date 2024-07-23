@@ -1,8 +1,8 @@
 .control {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 1rem; 
 }
 .material-symbols-outlined {
