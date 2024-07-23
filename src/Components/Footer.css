@@ -6,4 +6,5 @@ p{
 }
 .Unicorn{
     font-size: 56px;
+    user-select: none;
 }

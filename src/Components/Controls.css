@@ -1,0 +1,19 @@
+.control {
+    display: flex;
+    justify-content: space-around;
+    
+    gap: 2rem;
+    margin-top: 1rem; 
+}
+.material-symbols-outlined {
+    /* font-size: 32px; */
+    /* color: hsla(216, 7%, 87%, 0.393); */
+    /* border: 2px solid; */
+    /* border-radius: 50%; */
+    padding: 0.2rem;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 32
+  }

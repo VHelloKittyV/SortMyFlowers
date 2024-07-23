@@ -1,9 +1,13 @@
 input {
     font-size: 24px;
+    font-weight: 600;
     background-color: transparent;
     border: none;
     outline: none;
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    margin: 1rem 0;
+    position: relative;
+    right: 3.7rem;
+  
 }

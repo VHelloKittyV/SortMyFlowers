@@ -1,55 +1,44 @@
 import "./List.css";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import PropTypes from "prop-types";
 
-export default function List({ currentDate }) {
-    const [flowers, setFlowers] = useState([]);
-    const [farmFlowers, setFarmFlowers] = useState([]);
-    const [inputValue, setInputValue] = useState("");
-    const [editId, setEditId] = useState(null);
-    const [history, setHistory] = useState([]);
-    const [redoStack, setRedoStack] = useState([]);
-    const [filter, setFilter] = useState("holland");
-    const inputRef = useRef(null); // useRef to keep track of textarea
+export default function List({
+    flowers,
+    setFlowers,
+    farmFlowers,
+    setFarmFlowers,
+    greenFlowers,
+    setGreenFlowers,
+    inputValue,
+    setInputValue,
+    editId,
+    setEditId,
+    history,
+    setHistory,
+    // redoStack,
+    setRedoStack,
+    filter
+}) {
+    const inputRef = useRef(null);
 
     function handleDeleteItem(id) {
         const newFlowers = flowers.filter((flower) => flower.id !== id);
         const newFarmFlowers = farmFlowers.filter((flower) => flower.id !== id);
-        setHistory([...history, { flowers, farmFlowers }]);
+        const newGreenFlowers = greenFlowers.filter((flower) => flower.id !== id);
+        setHistory([...history, { flowers, farmFlowers, greenFlowers }]);
         setFlowers(newFlowers);
         setFarmFlowers(newFarmFlowers);
+        setGreenFlowers(newGreenFlowers);
         setRedoStack([]);
     }
 
-    const listItems = flowers
+    const listItems = (filter === 'holland' ? flowers : filter === 'farm' ? farmFlowers : greenFlowers)
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((flower) => (
-            <li key={flower.id}>
-                <span onDoubleClick={() => handleEdit(flower.id)}>
+            <li key={flower.id}
+                onDoubleClick={() => handleEdit(flower.id)}>
                     {flower.name}
-                </span>
-                <button
-                    style={{ userSelect: "none" }}
-                    className="deleteItem"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        handleDeleteItem(flower.id);
-                    }}
-                >
-                    <span className="material-symbols-outlined deleteItem">
-                        delete
-                    </span>
-                </button>
-            </li>
-        ));
-
-    const listItems2 = farmFlowers
-        .sort((a, b) => a.name.localeCompare(b.name))
-        .map((flower) => (
-            <li key={flower.id}>
-                <span onDoubleClick={() => handleEdit(flower.id)}>
-                    {flower.name}
-                </span>
+                
                 <button
                     style={{ userSelect: "none" }}
                     className="deleteItem"
@@ -81,9 +70,15 @@ export default function List({ currentDate }) {
                             ? { ...flower, name: inputValue }
                             : flower
                     );
+                    const updatedGreenFlowers = greenFlowers.map((flower) =>
+                        flower.id === editId
+                            ? { ...flower, name: inputValue }
+                            : flower
+                    );
 
                     setFlowers(updatedFlowers);
                     setFarmFlowers(updatedFarmFlowers);
+                    setGreenFlowers(updatedGreenFlowers);
                     setEditId(null);
                 }
             } else {
@@ -94,11 +89,14 @@ export default function List({ currentDate }) {
 
                 const newFlowers = [];
                 const newFarmFlowers = [];
+                const newGreenFlowers = [];
 
                 names.forEach((name) => {
                     const newFlower = { id: Date.now() + Math.random(), name };
                     if (filter === "farm") {
                         newFarmFlowers.push(newFlower);
+                    } else if (filter === "green") {
+                        newGreenFlowers.push(newFlower);
                     } else {
                         newFlowers.push(newFlower);
                     }
@@ -106,12 +104,13 @@ export default function List({ currentDate }) {
 
                 setFlowers([...flowers, ...newFlowers]);
                 setFarmFlowers([...farmFlowers, ...newFarmFlowers]);
+                setGreenFlowers([...greenFlowers, ...newGreenFlowers]);
             }
 
-            setHistory([...history, { flowers, farmFlowers }]);
+            setHistory([...history, { flowers, farmFlowers, greenFlowers }]);
             setInputValue("");
             setRedoStack([]);
-            inputRef.current.focus(); // manually set focus to the textarea
+            inputRef.current.focus();
 
             if (e.type === "click") {
                 e.preventDefault();
@@ -119,79 +118,18 @@ export default function List({ currentDate }) {
         }
     };
 
-    const handleClear = () => {
-        setHistory([...history, { flowers, farmFlowers }]);
-        setFlowers([]);
-        setFarmFlowers([]);
-        setRedoStack([]);
-    };
-
     const handleEdit = (id) => {
-        const flowerToEdit =
-            flowers.find((flower) => flower.id === id) ||
-            farmFlowers.find((flower) => flower.id === id);
-        setInputValue(flowerToEdit.name);
+        const flower = flowers.find((flower) => flower.id === id);
+        const farmFlower = farmFlowers.find((flower) => flower.id === id);
+        const greenFlower = greenFlowers.find((flower) => flower.id === id);
+        setInputValue(flower?.name || farmFlower?.name || greenFlower?.name || "");
         setEditId(id);
-    };
-
-    const handleUndo = () => {
-        if (history.length > 0) {
-            const previousState = history[history.length - 1];
-            setRedoStack([{ flowers, farmFlowers }, ...redoStack]);
-            setFlowers(previousState.flowers);
-            setFarmFlowers(previousState.farmFlowers);
-            setHistory(history.slice(0, -1));
-        }
-    };
-
-    const handleRedo = () => {
-        if (redoStack.length > 0) {
-            const nextState = redoStack[0];
-            setHistory([...history, { flowers, farmFlowers }]);
-            setFlowers(nextState.flowers);
-            setFarmFlowers(nextState.farmFlowers);
-            setRedoStack(redoStack.slice(1));
-        }
-    };
-
-    const handleCopy = () => {
-        const allFlowers = [
-            `Дата: ${currentDate}`,
-            "Голандськи квіти:",
-            ...flowers.map((flower) => flower.name),
-            "Фермерськи квіти:",
-            ...farmFlowers.map((flower) => flower.name),
-        ].join("\n");
-        navigator.clipboard.writeText(allFlowers);
+        inputRef.current.focus();
     };
 
     return (
         <>
-            <h3>Голандськи квіти</h3>
             <ol>{listItems}</ol>
-            <h3>Фермерськи квіти</h3>
-            <ol>{listItems2}</ol>
-            <fieldset>
-                <input
-                    type="radio"
-                    name="filter"
-                    id="holland"
-                    value="holland"
-                    checked={filter === "holland"}
-                    onChange={() => setFilter("holland")}
-                />
-                <label htmlFor="holland">Голандськи</label>
-                <input
-                    type="radio"
-                    name="filter"
-                    id="farm"
-                    value="farm"
-                    checked={filter === "farm"}
-                    onChange={() => setFilter("farm")}
-                />
-                <label htmlFor="farm">Фермерськи</label>
-            </fieldset>
-
             <div className="inputBody">
                 <textarea
                     ref={inputRef}
@@ -209,37 +147,24 @@ export default function List({ currentDate }) {
                     </span>
                 </button>
             </div>
-            <div className="control">
-                <button type="button" onClick={handleUndo}>
-                    <span className="material-symbols-outlined">
-                        arrow_back
-                    </span>
-                </button>
-                <button type="button" onClick={handleRedo}>
-                    <span className="material-symbols-outlined">
-                        arrow_right_alt
-                    </span>
-                </button>
-                <button type="button" onClick={handleCopy}>
-                    <span className="material-symbols-outlined">
-                        content_copy
-                    </span>
-                </button>
-                <button type="button" onClick={handleClear}>
-                    <span className="material-symbols-outlined">
-                        scan_delete
-                    </span>
-                </button>
-                <button type="button">
-                    <span className="material-symbols-outlined">
-                        event_note
-                    </span>
-                </button>
-            </div>
         </>
     );
 }
 
 List.propTypes = {
-    currentDate: PropTypes.string.isRequired,
+    flowers: PropTypes.array.isRequired,
+    setFlowers: PropTypes.func.isRequired,
+    farmFlowers: PropTypes.array.isRequired,
+    setFarmFlowers: PropTypes.func.isRequired,
+    greenFlowers: PropTypes.array.isRequired,
+    setGreenFlowers: PropTypes.func.isRequired,
+    inputValue: PropTypes.string.isRequired,
+    setInputValue: PropTypes.func.isRequired,
+    editId: PropTypes.number,
+    setEditId: PropTypes.func.isRequired,
+    history: PropTypes.array.isRequired,
+    setHistory: PropTypes.func.isRequired,
+    redoStack: PropTypes.array.isRequired,
+    setRedoStack: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired,
 };
