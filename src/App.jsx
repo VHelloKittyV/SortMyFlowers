@@ -1,9 +1,9 @@
-import "./App.css";
 import { useState } from "react";
 import DateComponent from "./Components/Date";
 import Controls from "./Components/Controls";
 import TabSection from "./Components/TabSection";
 import Footer from "./Components/Footer";
+import "./App.css";
 
 function App() {
     const [currentDate, setCurrentDate] = useState("");

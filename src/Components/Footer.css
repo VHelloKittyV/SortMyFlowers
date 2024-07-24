@@ -1,10 +1,14 @@
-p{
-    text-align: center;
-    font-size: 8px;
-    margin: auto 0;
-
-}
-.Unicorn{
+/* .Unicorn {
     font-size: 56px;
     user-select: none;
+} */
+p {
+    /* margin: 0; */
+    text-align: center;
+    font-size: 8px;
+}
+
+.footer{
+    margin-top: auto;
+    
 }

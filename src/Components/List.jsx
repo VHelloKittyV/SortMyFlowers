@@ -133,18 +133,18 @@ export default function List({
             <div className="inputBody">
                 <textarea
                     ref={inputRef}
-                    rows={2}
-                    placeholder="Напечатай або вставь список"
+                    rows={1}
+                    placeholder="Push the horse to see the magic✨"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) =>
                         e.key === "Enter" && !e.shiftKey && handleSubmit(e)
                     }
                 />
-                <button type="Submit" onClick={handleSubmit}>
-                    <span className="material-symbols-outlined checkButton">
+                <button type="Submit" onClick={handleSubmit} style={{fontSize:"50px"}}>
+                    {/* <span className="material-symbols-outlined checkButton">
                         check
-                    </span>
+                    </span> */}🦄
                 </button>
             </div>
         </>

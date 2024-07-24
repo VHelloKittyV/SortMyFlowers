@@ -1,20 +1,20 @@
 ol {
-    /* height: 10rem; */
+    height: 12rem;
     display: flex;
     flex-direction: column;
     text-transform: capitalize;
-    padding-left: 1rem;
-    margin-bottom: 1rem;
-    overflow: scroll;
+    overflow-y: scroll;
+
+    @media screen and (min-width: 600px) {
+        height: 30rem;
+    }
     li {
         display: flex;
         align-items: center;
         justify-content: space-between;
         align-items: center;
-        
     }
 }
-
 
 .deleteItem {
     font-size: 1rem;
@@ -24,16 +24,18 @@ ol {
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-top: 1rem;
 
     textarea {
         width: 100%;
+        font-family: "Roboto";
         background-color: transparent;
         color: white;
         resize: none;
         border: 2px solid white;
         border-radius: 0.7rem;
         padding: 1rem;
-        user-select: unset;
+
         -webkit-user-select: none; /* Safari */
         -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
@@ -41,6 +43,7 @@ ol {
     }
     ::placeholder {
         color: white;
+        font-family: "Roboto";
     }
     :focus {
         outline: none;
