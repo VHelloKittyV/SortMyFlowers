@@ -1,12 +1,11 @@
 input {
+    width: 100%;
     font-size: 24px;
     font-weight: 600;
+    color: white;
     background-color: transparent;
     border: none;
     outline: none;
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    margin: 1rem 0;
+    margin-bottom: 1rem;
     
-  
 }

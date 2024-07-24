@@ -1,20 +1,20 @@
-ol{
-    margin-bottom: 1rem;
-    height: 10rem;
+ol {
+    /* height: 10rem; */
     display: flex;
     flex-direction: column;
-    overflow: scroll;
     text-transform: capitalize;
-
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    overflow: scroll;
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
 }
 
-ol li{
-    list-style-type: decimal;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer; 
-}
 
 .deleteItem {
     font-size: 1rem;
@@ -27,12 +27,12 @@ ol li{
 
     textarea {
         width: 100%;
-        resize: none;
         background-color: transparent;
+        color: white;
+        resize: none;
         border: 2px solid white;
         border-radius: 0.7rem;
         padding: 1rem;
-
         user-select: unset;
         -webkit-user-select: none; /* Safari */
         -moz-user-select: none; /* Firefox */
@@ -43,7 +43,6 @@ ol li{
         color: white;
     }
     :focus {
-        /* border: none; */
         outline: none;
     }
 }

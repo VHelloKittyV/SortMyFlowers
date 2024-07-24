@@ -4,14 +4,9 @@
     line-height: 1.5;
     font-weight: 400;
 
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
+    color: white;
     background: rgb(238, 174, 202);
-    background: linear-gradient(
-        180deg,
-        rgba(238, 174, 202, 1) 0%,
-        rgba(68, 132, 208, 1) 100%
-    );
+    
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
