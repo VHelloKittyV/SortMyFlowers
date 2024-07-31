@@ -1,6 +1,7 @@
 
 import PropTypes from "prop-types";
 import "./Controls.css";
+import { Link } from "react-router-dom";
 
 function Controls({
     currentDate,
@@ -72,9 +73,12 @@ function Controls({
             <button type="button" onClick={handleClear}>
                 <span className="material-symbols-outlined">scan_delete</span>
             </button>
-            <button type="button" >
-                <span className="material-symbols-outlined">event_note</span>
+            <button type="button" onClick={handleCopy}>
+                <span className="material-symbols-outlined">file_save</span>
             </button>
+            <Link to="/SortMyFlowers/archive"><button type="button" > 
+                <span className="material-symbols-outlined">event_note</span>
+            </button></Link>
         </div>
     );
 }

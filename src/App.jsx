@@ -18,6 +18,7 @@ function App() {
     return (
         <div className="appContainer">
             <h1>Поставка🌸</h1>
+
             <DateComponent setDate={setCurrentDate} />
             <TabSection
                 currentDate={currentDate}
@@ -49,7 +50,7 @@ function App() {
                 redoStack={redoStack}
                 setRedoStack={setRedoStack}
             />
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 }

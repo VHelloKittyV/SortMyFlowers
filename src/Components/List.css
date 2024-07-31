@@ -1,9 +1,11 @@
+
 ol {
     height: 12rem;
     display: flex;
     flex-direction: column;
     text-transform: capitalize;
-    overflow-y: scroll;
+    overflow-y: auto;
+   
 
     @media screen and (min-width: 600px) {
         height: 30rem;
@@ -17,24 +19,26 @@ ol {
 }
 
 .deleteItem {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .inputBody {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
 
     textarea {
         width: 100%;
         font-family: "Roboto";
+        font-size: 16px;
         background-color: transparent;
         color: white;
         resize: none;
         border: 2px solid white;
         border-radius: 0.7rem;
         padding: 1rem;
+        overflow: hidden;
 
         -webkit-user-select: none; /* Safari */
         -moz-user-select: none; /* Firefox */
@@ -44,8 +48,10 @@ ol {
     ::placeholder {
         color: white;
         font-family: "Roboto";
+        font-size: 12px;
     }
     :focus {
         outline: none;
+
     }
 }

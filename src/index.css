@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
-
 :root {
     box-sizing: border-box;
+    height: 100dvh;
     font-family:"Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: white;
-    background: rgb(238, 174, 202);
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    /* background-color: rgba(0, 0, 0, 0.29); */
     
     font-synthesis: none;
     text-rendering: optimizeLegibility;

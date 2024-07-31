@@ -1,0 +1,6 @@
+.archive{
+    /* overflow-y: scroll; */
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    /* height: 100dvh;  */
+}

@@ -1,3 +1,4 @@
+.date{margin: 1rem 0;}
 input {
     width: 100%;
     font-size: 24px;
@@ -6,6 +7,5 @@ input {
     background-color: transparent;
     border: none;
     outline: none;
-    margin-bottom: 1rem;
-    
+    user-select: none; /* Это все еще полезно, хотя может и не работать во всех браузерах */
 }
