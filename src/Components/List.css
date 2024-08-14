@@ -1,25 +1,48 @@
-
 ol {
-    height: 12rem;
+    width: 100%;
+    /* scrollbar-width: thin;
+    scroll-behavior: smooth; */
+    /* height: 12rem; */
     display: flex;
     flex-direction: column;
-    text-transform: capitalize;
     overflow-y: auto;
-   
+    gap: 0.6rem;
+    
+
 
     @media screen and (min-width: 600px) {
-        height: 30rem;
+        height: 50dvh;
     }
+
     li {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        align-items: center;
+        width: 100%;
+        position: relative;
+        span{
+    
+            display: inline-block;
+            width: 80%;
+            
+        }
+        span::first-letter{
+            text-transform: capitalize;
+        }
     }
+
+}
+li:hover .deleteItem{
+    color: #ffffff;
 }
 
 .deleteItem {
+    display: inline-block;
     font-size: 1.2rem;
+    margin: 0;
+    color: #ffffff5f;
+    position: absolute;
+    /* right: 0; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    
 }
 
 .inputBody {
@@ -31,7 +54,7 @@ ol {
     textarea {
         width: 100%;
         font-family: "Roboto";
-        font-size: 16px;
+        font-size: 1rem;
         background-color: transparent;
         color: white;
         resize: none;
@@ -40,18 +63,33 @@ ol {
         padding: 1rem;
         overflow: hidden;
 
-        -webkit-user-select: none; /* Safari */
-        -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+        -webkit-user-select: none;
+        /* Safari */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
     }
+
     ::placeholder {
         color: white;
         font-family: "Roboto";
-        font-size: 12px;
+        font-size: 0.7rem;
     }
+
     :focus {
         outline: none;
 
     }
+
+    button {
+        margin: 0;
+        rotate: 0deg;
+
+    }
+
+
+
 }

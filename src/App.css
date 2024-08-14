@@ -32,17 +32,29 @@ button {
     border: none;
     padding: 0;
 }
-ol,ul{
+ul{
     list-style: none;
     margin: 0;
     padding: 0;
 }
 li, button{
     cursor: pointer;
+    margin: 0;
+   
 }
 h1,input,ul, button, p{
     user-select: none;
-    margin: 0;
-    margin-top: 1rem;
+    /* margin: 0; */
+    margin-top: 2rem;
 }
 
+img{
+    width: 100%;
+    
+}
+.logo{
+    width: 25%;
+    margin-left: 0.3rem;
+    position: relative;
+    top: 6px;
+}

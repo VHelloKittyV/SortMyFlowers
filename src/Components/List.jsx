@@ -2,6 +2,7 @@ import "./List.css";
 import { useRef } from "react";
 import PropTypes from "prop-types";
 
+
 export default function List({
     flowers,
     setFlowers,
@@ -37,10 +38,9 @@ export default function List({
         .map((flower) => (
             <li key={flower.id}
                 onDoubleClick={() => handleEdit(flower.id)}>
-                    {flower.name}
+                    <span>{flower.name}</span>
                 
                 <button
-                    style={{ userSelect: "none" }}
                     className="deleteItem"
                     onClick={(e) => {
                         e.stopPropagation();

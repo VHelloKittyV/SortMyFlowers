@@ -2,8 +2,10 @@ import { useState } from "react";
 import DateComponent from "./Components/Date";
 import Controls from "./Components/Controls";
 import TabSection from "./Components/TabSection";
-import Footer from "./Components/Footer";
+// import Footer from "./Components/Footer";
 import "./App.css";
+// import  blackLogo from './assets/MFS icon black-ratio-png.webp'
+import  whiteLogo from './assets/MFS icon white-ratio-png.webp'
 
 function App() {
     const [currentDate, setCurrentDate] = useState("");
@@ -17,7 +19,8 @@ function App() {
 
     return (
         <div className="appContainer">
-            <h1>Поставка🌸</h1>
+            <h1>Поставка<span><img className="logo" src={whiteLogo} alt="logo" /></span></h1>
+            
 
             <DateComponent setDate={setCurrentDate} />
             <TabSection
