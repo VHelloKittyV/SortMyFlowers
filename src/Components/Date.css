@@ -1,11 +1,14 @@
-.date{margin: 1rem 0;}
+.date{
+    margin:0;}
 input {
     width: 100%;
-    font-size: 24px;
+    text-align: center;
+    font-size: 1rem;
     font-weight: 900;
     color: white;
     background-color: transparent;
     border: none;
     outline: none;
-    user-select: none; /* Это все еще полезно, хотя может и не работать во всех браузерах */
+    position: relative;
+    right:10px;
 }

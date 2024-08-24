@@ -1,7 +1,6 @@
 import "./List.css";
-import { useRef } from "react";
 import PropTypes from "prop-types";
-
+import InputForm from "./InputForm"; 
 
 export default function List({
     flowers,
@@ -16,12 +15,9 @@ export default function List({
     setEditId,
     history,
     setHistory,
-    // redoStack,
     setRedoStack,
-    filter
+    filter,
 }) {
-    const inputRef = useRef(null);
-
     function handleDeleteItem(id) {
         const newFlowers = flowers.filter((flower) => flower.id !== id);
         const newFarmFlowers = farmFlowers.filter((flower) => flower.id !== id);
@@ -41,7 +37,7 @@ export default function List({
                     <span>{flower.name}</span>
                 
                 <button
-                    className="deleteItem"
+                    className="deleteItem" 
                     onClick={(e) => {
                         e.stopPropagation();
                         handleDeleteItem(flower.id);
@@ -54,99 +50,33 @@ export default function List({
             </li>
         ));
 
-    const handleSubmit = (e) => {
-        if (e.key === "Enter" || e.type === "click") {
-            if (editId !== null) {
-                if (inputValue.trim() === "") {
-                    handleDeleteItem(editId);
-                } else {
-                    const updatedFlowers = flowers.map((flower) =>
-                        flower.id === editId
-                            ? { ...flower, name: inputValue }
-                            : flower
-                    );
-                    const updatedFarmFlowers = farmFlowers.map((flower) =>
-                        flower.id === editId
-                            ? { ...flower, name: inputValue }
-                            : flower
-                    );
-                    const updatedGreenFlowers = greenFlowers.map((flower) =>
-                        flower.id === editId
-                            ? { ...flower, name: inputValue }
-                            : flower
-                    );
-
-                    setFlowers(updatedFlowers);
-                    setFarmFlowers(updatedFarmFlowers);
-                    setGreenFlowers(updatedGreenFlowers);
-                    setEditId(null);
-                }
-            } else {
-                const names = inputValue
-                    .split("\n")
-                    .map((name) => name.trim())
-                    .filter((name) => name !== "");
-
-                const newFlowers = [];
-                const newFarmFlowers = [];
-                const newGreenFlowers = [];
-
-                names.forEach((name) => {
-                    const newFlower = { id: Date.now() + Math.random(), name };
-                    if (filter === "farm") {
-                        newFarmFlowers.push(newFlower);
-                    } else if (filter === "green") {
-                        newGreenFlowers.push(newFlower);
-                    } else {
-                        newFlowers.push(newFlower);
-                    }
-                });
-
-                setFlowers([...flowers, ...newFlowers]);
-                setFarmFlowers([...farmFlowers, ...newFarmFlowers]);
-                setGreenFlowers([...greenFlowers, ...newGreenFlowers]);
-            }
-
-            setHistory([...history, { flowers, farmFlowers, greenFlowers }]);
-            setInputValue("");
-            setRedoStack([]);
-            inputRef.current.focus();
-
-            if (e.type === "click") {
-                e.preventDefault();
-            }
-        }
-    };
-
     const handleEdit = (id) => {
         const flower = flowers.find((flower) => flower.id === id);
         const farmFlower = farmFlowers.find((flower) => flower.id === id);
         const greenFlower = greenFlowers.find((flower) => flower.id === id);
         setInputValue(flower?.name || farmFlower?.name || greenFlower?.name || "");
         setEditId(id);
-        inputRef.current.focus();
     };
 
     return (
         <>
             <ol>{listItems}</ol>
-            <div className="inputBody">
-                <textarea
-                    ref={inputRef}
-                    rows={1}
-                    placeholder="Push the horse to see the magic✨"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyDown={(e) =>
-                        e.key === "Enter" && !e.shiftKey && handleSubmit(e)
-                    }
-                />
-                <button type="Submit" onClick={handleSubmit} style={{fontSize:"50px"}}>
-                    {/* <span className="material-symbols-outlined checkButton">
-                        check
-                    </span> */}🦄
-                </button>
-            </div>
+            <InputForm
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                editId={editId}
+                setEditId={setEditId}
+                flowers={flowers}
+                setFlowers={setFlowers}
+                farmFlowers={farmFlowers}
+                setFarmFlowers={setFarmFlowers}
+                greenFlowers={greenFlowers}
+                setGreenFlowers={setGreenFlowers}
+                history={history}
+                setHistory={setHistory}
+                setRedoStack={setRedoStack}
+                filter={filter}
+            />
         </>
     );
 }
@@ -164,7 +94,6 @@ List.propTypes = {
     setEditId: PropTypes.func.isRequired,
     history: PropTypes.array.isRequired,
     setHistory: PropTypes.func.isRequired,
-    redoStack: PropTypes.array.isRequired,
     setRedoStack: PropTypes.func.isRequired,
     filter: PropTypes.string.isRequired,
 };

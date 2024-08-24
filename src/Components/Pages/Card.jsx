@@ -12,6 +12,7 @@ export default function Card() {
             <DateComponent setDate={setCurrentDate} />
           </h1>
           <textarea className="listCard_preview" />
+          <button>delete</button>
         </div>
      
     </>

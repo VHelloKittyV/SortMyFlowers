@@ -2,7 +2,6 @@ import { useState } from "react";
 import DateComponent from "./Components/Date";
 import Controls from "./Components/Controls";
 import TabSection from "./Components/TabSection";
-// import Footer from "./Components/Footer";
 import "./App.css";
 // import  blackLogo from './assets/MFS icon black-ratio-png.webp'
 import  whiteLogo from './assets/MFS icon white-ratio-png.webp'
@@ -16,6 +15,7 @@ function App() {
     const [editId, setEditId] = useState(null);
     const [history, setHistory] = useState([]);
     const [redoStack, setRedoStack] = useState([]);
+    
 
     return (
         <div className="appContainer">
@@ -53,7 +53,7 @@ function App() {
                 redoStack={redoStack}
                 setRedoStack={setRedoStack}
             />
-            {/* <Footer/> */}
+            
         </div>
     );
 }

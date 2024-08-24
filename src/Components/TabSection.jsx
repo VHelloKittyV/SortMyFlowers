@@ -25,7 +25,7 @@ export default function TabSection({
         <Tabs>
             <TabList className="TabList">
                 <Tab className="Tab">Голандська🌸</Tab>
-                <Tab className="Tab">Фермерська🌼</Tab>
+                <Tab className="Tab">Фермерська👨‍🌾</Tab>
                 <Tab className="Tab">Зелень🌿</Tab>
             </TabList>
 

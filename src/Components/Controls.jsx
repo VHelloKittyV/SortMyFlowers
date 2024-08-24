@@ -1,9 +1,9 @@
-
 import PropTypes from "prop-types";
 import "./Controls.css";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Controls({
+export default function Controls({
     currentDate,
     flowers,
     setFlowers,
@@ -16,12 +16,98 @@ function Controls({
     redoStack,
     setRedoStack
 }) {
+    
+    useEffect(() => {
+        try {
+            const savedFlowers = localStorage.getItem("flowers");
+            const savedFarmFlowers = localStorage.getItem("farmFlowers");
+            const savedGreenFlowers = localStorage.getItem("greenFlowers");
+            const savedHistory = localStorage.getItem("history");
+            const savedRedoStack = localStorage.getItem("redoStack");
+
+            if (savedFlowers) setFlowers(JSON.parse(savedFlowers));
+            if (savedFarmFlowers) setFarmFlowers(JSON.parse(savedFarmFlowers));
+            if (savedGreenFlowers) setGreenFlowers(JSON.parse(savedGreenFlowers));
+            if (savedHistory) setHistory(JSON.parse(savedHistory));
+            if (savedRedoStack) setRedoStack(JSON.parse(savedRedoStack));
+
+            // console.log("Данные загружены из localStorage");
+        } catch (error) {
+            // console.error("Ошибка при загрузке данных из localStorage", error);
+        }
+    }, [setFlowers, setFarmFlowers, setGreenFlowers, setHistory, setRedoStack]);
+
+  
+    useEffect(() => {
+        if (flowers.length > 0) {
+            try {
+                localStorage.setItem("flowers", JSON.stringify(flowers));
+                // console.log("flowers сохранены в localStorage:", flowers);
+            } catch (error) {
+                // console.error("Ошибка при сохранении flowers в localStorage", error);
+            }
+        }
+    }, [flowers]);
+
+    useEffect(() => {
+        if (farmFlowers.length > 0) {
+            try {
+                localStorage.setItem("farmFlowers", JSON.stringify(farmFlowers));
+                // console.log("farmFlowers сохранены в localStorage:", farmFlowers);
+            } catch (error) {
+                // console.error("Ошибка при сохранении farmFlowers в localStorage", error);
+            }
+        }
+    }, [farmFlowers]);
+
+    useEffect(() => {
+        if (greenFlowers.length > 0) {
+            try {
+                localStorage.setItem("greenFlowers", JSON.stringify(greenFlowers));
+                // console.log("greenFlowers сохранены в localStorage:", greenFlowers);
+            } catch (error) {
+                // console.error("Ошибка при сохранении greenFlowers в localStorage", error);
+            }
+        }
+    }, [greenFlowers]);
+
+    useEffect(() => {
+        if (history.length > 0) {
+            try {
+                localStorage.setItem("history", JSON.stringify(history));
+                // console.log("history сохранены в localStorage:", history);
+            } catch (error) {
+                // console.error("Ошибка при сохранении history в localStorage", error);
+            }
+        }
+    }, [history]);
+
+    useEffect(() => {
+        if (redoStack.length > 0) {
+            try {
+                localStorage.setItem("redoStack", JSON.stringify(redoStack));
+                // console.log("redoStack сохранены в localStorage:", redoStack);
+            } catch (error) {
+                // console.error("Ошибка при сохранении redoStack в localStorage", error);
+            }
+        }
+    }, [redoStack]);
+
     const handleClear = () => {
-        setHistory([...history, { flowers, farmFlowers, greenFlowers }]);
-        setFlowers([]);
-        setFarmFlowers([]);
-        setGreenFlowers([]);
-        setRedoStack([]);
+        if (confirm("Стерти?🤨")) {
+            // setHistory([...history, { flowers, farmFlowers, greenFlowers }]);
+            setFlowers([]);
+            setFarmFlowers([]);
+            setGreenFlowers([]);
+            setRedoStack([]);
+
+            localStorage.clear()
+            // localStorage.removeItem("flowers");
+            // localStorage.removeItem("farmFlowers");
+            // localStorage.removeItem("greenFlowers");
+            localStorage.removeItem("history");
+            // localStorage.removeItem("redoStack");
+        }
     };
 
     const handleUndo = () => {
@@ -47,13 +133,14 @@ function Controls({
     };
 
     const handleCopy = () => {
+        alert("Готовий 😎");
         const allFlowers = [
-            `Дата: ${currentDate}`,
-            "Голандськи квіти:",
+            `📅 Дата: ${currentDate}`,
+            "🚛 Голандськи квіти:",
             ...flowers.map((flower) => flower.name),
-            "Фермерськи квіти:",
+            "👨‍🌾 Фермерськи квіти:",
             ...farmFlowers.map((flower) => flower.name),
-            "Зелень:",
+            "🌿 Зелень:",
             ...greenFlowers.map((flower) => flower.name),
         ].join("\n");
         navigator.clipboard.writeText(allFlowers);
@@ -65,7 +152,7 @@ function Controls({
                 <span className="material-symbols-outlined">arrow_back</span>
             </button>
             <button type="button" onClick={handleRedo}>
-                <span className="material-symbols-outlined">arrow_right_alt</span>
+                <span className="material-symbols-outlined">arrow_forward</span>
             </button>
             <button type="button" onClick={handleCopy}>
                 <span className="material-symbols-outlined">content_copy</span>
@@ -76,9 +163,11 @@ function Controls({
             <button type="button" onClick={handleCopy}>
                 <span className="material-symbols-outlined">file_save</span>
             </button>
-            <Link to="/SortMyFlowers/archive"><button type="button" > 
-                <span className="material-symbols-outlined">event_note</span>
-            </button></Link>
+            <Link to="/SortMyFlowers/archive">
+                <button type="button">
+                    <span className="material-symbols-outlined">event_note</span>
+                </button>
+            </Link>
         </div>
     );
 }
@@ -94,7 +183,5 @@ Controls.propTypes = {
     history: PropTypes.array.isRequired,
     setHistory: PropTypes.func.isRequired,
     redoStack: PropTypes.array.isRequired,
-    setRedoStack: PropTypes.func.isRequired
+    setRedoStack: PropTypes.func.isRequired,
 };
-
-export default Controls;

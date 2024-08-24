@@ -1,10 +1,8 @@
 .archive{
-    /* overflow-y: scroll; */
-    scrollbar-width: thin;
-    scroll-behavior: smooth;
-    height: auto;
-
-}
-.material-symbols-outlined{
+   padding: 1rem;
+   /* img{width: 100px;} */
+   h1{
+    text-align: center;
+   }
 
 }

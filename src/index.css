@@ -1,3 +1,4 @@
+/* @import-normalize; */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 :root {
@@ -7,10 +8,14 @@
     font-weight: 400;
     font-style: normal;
     color: white;
-    background-color: #000000d1;
+    background-color: #373737;
+    scroll-behavior: smooth;
+
+  
     
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
 }
