@@ -1,0 +1,27 @@
+.logo {
+    /* width: %; */
+    max-width: 140px;
+    margin-left: 0.3rem;
+    position: relative;
+    top: 6px;
+}
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    font-kerning: normal;
+    font-variant-ligatures: normal;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top:1rem;
+    margin-bottom: 0.5rem;
+    @media (min-width:600px){
+        /* font-size: 2rem; */
+    }
+    span{
+        display: block;
+        width: 100%;
+        font-weight: 200;
+    }
+    
+}

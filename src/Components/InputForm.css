@@ -4,6 +4,7 @@
     justify-content: space-around;
     align-items: center;
     gap: 1rem;
+    
 
     textarea {
         box-sizing: border-box;
@@ -44,8 +45,9 @@
     button {
         font-size: 3rem;
         position: relative;
-        top: -5px;
+        top: 10px;
         
+        z-index: 999;
     }
 
     button:hover{

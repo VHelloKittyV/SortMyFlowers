@@ -1,0 +1,330 @@
+[
+    {
+        "original_name": "AGAP MEONI",
+        "translated_name": "Агапантус Меоні"
+    },
+    {
+        "original_name": "AGAP OVERIG",
+        "translated_name": "Агапантус Прочі"
+    },
+    {
+        "original_name": "ANTH A CHOCO",
+        "translated_name": "Антуріум Чоко"
+    },
+    {
+        "original_name": "ANTH A COGNAC",
+        "translated_name": "Антуріум Коньяк"
+    },
+    {
+        "original_name": "BLAD ASP 1E VEREN",
+        "translated_name": "Листя Аспарагуса Перші Пір'я"
+    },
+    {
+        "original_name": "BLAD ASP 1E VEREN VEREN BRUIN",
+        "translated_name": "Листя Аспарагуса Перші Пір'я Коричневі"
+    },
+    {
+        "original_name": "BLAD ASP UMBELLATUS",
+        "translated_name": "Листя Аспарагуса Умбеллатус"
+    },
+    {
+        "original_name": "BLAD ASPARAGUS EXTRA VEREN",
+        "translated_name": "Листя Аспарагуса Екстра Пір'я"
+    },
+    {
+        "original_name": "BLAD ASPARAGUS LANG GETOPT",
+        "translated_name": "Листя Аспарагуса Довгі Обрізані"
+    },
+    {
+        "original_name": "BLAD ASPARAGUS MEYERS",
+        "translated_name": "Листя Аспарагуса Мейерс"
+    },
+    {
+        "original_name": "BLAD ASPARAGUS SETAC",
+        "translated_name": "Листя Аспарагуса Сетак"
+    },
+    {
+        "original_name": "BLAD STEELGRASS",
+        "translated_name": "Листя Стилграсс"
+    },
+    {
+        "original_name": "BLAD T GRASS BONT",
+        "translated_name": "Листя Т Грасс Пестре"
+    },
+    {
+        "original_name": "BLAD WEIGELA VERF ELSTEAD AUBERGINE",
+        "translated_name": "Листя Вейгела Верф Елстед Баклажан"
+    },
+    {
+        "original_name": "BLAD WEIGELA VERF ELSTEAD CERISE",
+        "translated_name": "Листя Вейгела Верф Елстед Вишня"
+    },
+    {
+        "original_name": "CALLIS 2 KLEUR",
+        "translated_name": "Калліс Двоколірний"
+    },
+    {
+        "original_name": "CEL C ACT VERDA",
+        "translated_name": "Целозія Акт Верда"
+    },
+    {
+        "original_name": "CEL C UNLIMITED CORAL",
+        "translated_name": "Целозія Необмежений Корал"
+    },
+    {
+        "original_name": "CEL PL SUNDAY GREEN",
+        "translated_name": "Целозія Плюмоза Сандей Грін"
+    },
+    {
+        "original_name": "CENTAU CYANUS",
+        "translated_name": "Васильок Синій"
+    },
+    {
+        "original_name": "CHR G FUEGO 1PT",
+        "translated_name": "Хризантема Фуего 1PT 120 гр."
+    },
+    {
+        "original_name": "CORTADERIA",
+        "translated_name": "Кортадерія"
+    },
+    {
+        "original_name": "DI ST HAPPY TEA",
+        "translated_name": "Діантус Хеппі Ті"
+    },
+    {
+        "original_name": "EREMURUS EMMY-RO",
+        "translated_name": "Еремурус Еммі-Ро"
+    },
+    {
+        "original_name": "GE GR PASTA CARBONARA",
+        "translated_name": "Гербера Паста Карбонара"
+    },
+    {
+        "original_name": "GE GR PASTINI SPRITZ",
+        "translated_name": "Гербера Пастіні Спрітц"
+    },
+    {
+        "original_name": "GE GR SPIN YARI+",
+        "translated_name": "Гербера Спін Ярі+"
+    },
+    {
+        "original_name": "GE MI PICCOLINI VENICE",
+        "translated_name": "Гербера Мікро Пікколіні Венеція"
+    },
+    {
+        "original_name": "GE MI POMPONI RIZZO",
+        "translated_name": "Гербера Мікро Помпоні Ріццо"
+    },
+    {
+        "original_name": "GE MI SPIDER LARSSON",
+        "translated_name": "Гербера Мікро Спайдер Ларссон"
+    },
+    {
+        "original_name": "GLAD GR ESSENTIAL",
+        "translated_name": "Гладіолус Грандіфлора Ессеншіал"
+    },
+    {
+        "original_name": "GLAD GR GEMENGD",
+        "translated_name": "Гладіолус Грандіфлора Змішаний"
+    },
+    {
+        "original_name": "GREVILLEA IVANHOE BRONS",
+        "translated_name": "Гревіллея Іванхо Бронзова"
+    },
+    {
+        "original_name": "HELI AN MARLEY",
+        "translated_name": "Геліантус Марлі"
+    },
+    {
+        "original_name": "HELI AN ZIGGY",
+        "translated_name": "Геліантус Зіггі"
+    },
+    {
+        "original_name": "HELI SOLANO DOUBLE",
+        "translated_name": "Геліантус Солано Дабл"
+    },
+    {
+        "original_name": "HELIAN AN SONJA",
+        "translated_name": "Геліантус Соня"
+    },
+    {
+        "original_name": "HELIAN AN SUNRICH OR",
+        "translated_name": "Геліантус Санріч Оранжевий"
+    },
+    {
+        "original_name": "HELIAN AN VINCENT CHOICE",
+        "translated_name": "Геліантус Вінсент Чойс"
+    },
+    {
+        "original_name": "HELIAN OVERIG",
+        "translated_name": "Геліантус Прочі"
+    },
+    {
+        "original_name": "HELIAN SUN KING",
+        "translated_name": "Геліантус Сан Кінг"
+    },
+    {
+        "original_name": "HELICHRYSUM GEMENGD",
+        "translated_name": "Геліхризум Змішаний"
+    },
+    {
+        "original_name": "HYDR M EMERALD CLASSIC",
+        "translated_name": "Гортензія Смарагдова Класика"
+    },
+    {
+        "original_name": "HYDR M MAG REVOLUTION",
+        "translated_name": "Гортензія Маг Революція (Рожева)"
+    },
+    {
+        "original_name": "HYDR M ROYAL ANASTASIA CLASSIC",
+        "translated_name": "Гортензія Королівська Анастасія Класика"
+    },
+    {
+        "original_name": "HYDR M ROYAL BENEFIT CLASSIC",
+        "translated_name": "Гортензія Королівська Вигода Класика"
+    },
+    {
+        "original_name": "HYDR M SUNSATION PAARS",
+        "translated_name": "Гортензія Сансейшн Фіолетова"
+    },
+    {
+        "original_name": "HYDR M VERENA CLASSIC",
+        "translated_name": "Гортензія Верена Класика (Шампанське)"
+    },
+    {
+        "original_name": "HYDR MAGICAL CORAL CLASSIC",
+        "translated_name": "Гортензія Магічний Корал Класика"
+    },
+    {
+        "original_name": "HYDR MAGICAL PINK RUBY",
+        "translated_name": "Гортензія Магічний Рожевий Рубін"
+    },
+    {
+        "original_name": "HYDR PA MAGICAL CANDLE",
+        "translated_name": "Гортензія Магічна Свічка"
+    },
+    {
+        "original_name": "KAAPS GROEN CLUSTERSTAR",
+        "translated_name": "Капський Зелений Кластерстар"
+    },
+    {
+        "original_name": "LI AZ OVERIG",
+        "translated_name": "Лілія Азіатська Прочі"
+    },
+    {
+        "original_name": "LI LA BACH",
+        "translated_name": "Лілія Ла Бах"
+    },
+    {
+        "original_name": "LIATRIS SPICATA",
+        "translated_name": "Ліатріс Спіката"
+    },
+    {
+        "original_name": "MALUS RED SENTINAL",
+        "translated_name": "Малус Червоний Страж"
+    },
+    {
+        "original_name": "PAEO L BRIDAL SHOWER",
+        "translated_name": "Півонія Свадебний Душ"
+    },
+    {
+        "original_name": "PANIC VERF BORDEAUX",
+        "translated_name": "Панікум Пофарбований Бордо"
+    },
+    {
+        "original_name": "PANIC VERF BRUIN",
+        "translated_name": "Панікум Пофарбований Коричневий"
+    },
+    {
+        "original_name": "PAPAV SOM ZAADDOZEN",
+        "translated_name": "Мак Сім'яні Коробочки"
+    },
+    {
+        "original_name": "RAN BUTTERFLY HELIOS",
+        "translated_name": "Ранункулус Баттерфляй Геліос"
+    },
+    {
+        "original_name": "RAN BUTTERFLY MUSA",
+        "translated_name": "Ранункулус Баттерфляй Муса"
+    },
+    {
+        "original_name": "ROSENBOTTEL ZAFFIRO",
+        "translated_name": "Шипшина Зафіро"
+    },
+    {
+        "original_name": "ROZENBOTTEL CORALLO",
+        "translated_name": "Шипшина Коралло"
+    },
+    {
+        "original_name": "ROZENBOTTEL PRINSBERRY ORANGE",
+        "translated_name": "Шипшина Прінсберрі Оранжева"
+    },
+    {
+        "original_name": "SANGUISORBA OFFICINALIS",
+        "translated_name": "Сангвісорба Лікарська"
+    },
+    {
+        "original_name": "SANGUISORBA PINK TANNA",
+        "translated_name": "Сангвісорба Рожева Танна"
+    },
+    {
+        "original_name": "SCAB AT FR VANILLA BON BON",
+        "translated_name": "Скабіоза Ванільне Пиріжко"
+    },
+    {
+        "original_name": "SCAB C ANNABELLE",
+        "translated_name": "Скабіоза Аннабель"
+    },
+    {
+        "original_name": "SCABIOSA STELLATA (zaaddoos)",
+        "translated_name": "Скабіоза Зоряна (сім'яна коробочка)"
+    },
+    {
+        "original_name": "SIERGRAS CHASMANTHIUM LATIFOL",
+        "translated_name": "Декоративна трава Хасмантіум Латіфолія"
+    },
+    {
+        "original_name": "SIERGRAS GEM IN FUST",
+        "translated_name": "Декоративна трава в фусті"
+    },
+    {
+        "original_name": "SIERGRAS PANIC HEAVY METAL",
+        "translated_name": "Декоративна трава Панікум Хеві Метал"
+    },
+    {
+        "original_name": "SIERGRAS PANICUM FOUNTAIN",
+        "translated_name": "Декоративна трава Панікум Фонтан"
+    },
+    {
+        "original_name": "SIERGRAS PENNISETUM BLONDIE",
+        "translated_name": "Декоративна трава Пенісетум Блонді"
+    },
+    {
+        "original_name": "SIERGRAS SETA IT VOLLE MELK",
+        "translated_name": "Декоративна трава Сета Іт Повне Молоко"
+    },
+    {
+        "original_name": "SIERVRUCHT MALUS",
+        "translated_name": "Декоративні плоди Малус"
+    },
+    {
+        "original_name": "SOLI GOLDEN GLORY",
+        "translated_name": "Солідиго Золота Слава"
+    },
+    {
+        "original_name": "TARWE SUN NATURAL",
+        "translated_name": "Пшениця Сонячна Натуральна"
+    },
+    {
+        "original_name": "VIBURNUM TINUS",
+        "translated_name": "Вібернум Тінус"
+    },
+    {
+        "original_name": "ZANT CAPTAIN VENTURA",
+        "translated_name": "Зантедескія Капітан Вентура"
+    },
+    {
+        "original_name": "ZANT CRYSTAL BLUSH",
+        "translated_name": "Зантедескія Кристал Блаш"
+    }
+]

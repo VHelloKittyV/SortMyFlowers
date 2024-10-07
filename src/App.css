@@ -8,30 +8,20 @@ body {
 
 
 .appContainer {
-    max-width: 600px;
+    /* max-width: 1200px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
 
-
-    h1 {
-        font-size: 1.5rem;
-        text-align: center;
-        text-transform: uppercase;
-        margin: 0;
-        margin-top:1rem;
-        margin-bottom: 0.5rem;
-
-    }
     .TabList{
         box-sizing: border-box;
         position: sticky;
         top:-1px;
     }
     .inputBody {
-        width: 98%;
+        width: 95%;
         position:fixed;
         bottom: 0;
         left: 50%;
@@ -39,25 +29,13 @@ body {
         box-sizing: border-box;
         padding: 1rem 0;
 
-        
-        @media screen and (min-width:670px) {
-            width: 500px;
-            transform: translateX(-45%); 
-            
-        }
-
     }
     
     .control {
-        padding: 0.4rem;
-        position: fixed;
-        bottom: 5rem;
         
-        @media screen and (min-width:670px) {
-            width: 450px;
-            transform: translateX(-3%); 
-            
-        }
+        position: fixed;
+        bottom: 5.5rem;
+    
     }
 
 
@@ -91,10 +69,8 @@ img {
     width: 100%;
 
 }
-
-.logo {
-    width: 25%;
-    margin-left: 0.3rem;
-    position: relative;
-    top: 6px;
+a{
+    color: white;
+    text-decoration: none;
 }
+

@@ -1,0 +1,23 @@
+input{
+    padding: 0.5rem;
+    width: 100%;
+    /* margin-bottom: 1rem; */
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+}
+.original_name, .translated_name{
+    user-select: auto;
+}
+.original_name{
+    font-weight: 600;
+    
+}
+.itemBox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}

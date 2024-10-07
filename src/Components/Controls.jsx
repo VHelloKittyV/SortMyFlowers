@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import "./Controls.css";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import ControlsButton from "./ControlsButton";
 
 export default function Controls({
     currentDate,
@@ -14,9 +15,8 @@ export default function Controls({
     history,
     setHistory,
     redoStack,
-    setRedoStack
+    setRedoStack,
 }) {
-    
     useEffect(() => {
         try {
             const savedFlowers = localStorage.getItem("flowers");
@@ -27,7 +27,8 @@ export default function Controls({
 
             if (savedFlowers) setFlowers(JSON.parse(savedFlowers));
             if (savedFarmFlowers) setFarmFlowers(JSON.parse(savedFarmFlowers));
-            if (savedGreenFlowers) setGreenFlowers(JSON.parse(savedGreenFlowers));
+            if (savedGreenFlowers)
+                setGreenFlowers(JSON.parse(savedGreenFlowers));
             if (savedHistory) setHistory(JSON.parse(savedHistory));
             if (savedRedoStack) setRedoStack(JSON.parse(savedRedoStack));
 
@@ -37,7 +38,6 @@ export default function Controls({
         }
     }, [setFlowers, setFarmFlowers, setGreenFlowers, setHistory, setRedoStack]);
 
-  
     useEffect(() => {
         if (flowers.length > 0) {
             try {
@@ -52,7 +52,10 @@ export default function Controls({
     useEffect(() => {
         if (farmFlowers.length > 0) {
             try {
-                localStorage.setItem("farmFlowers", JSON.stringify(farmFlowers));
+                localStorage.setItem(
+                    "farmFlowers",
+                    JSON.stringify(farmFlowers)
+                );
                 // console.log("farmFlowers сохранены в localStorage:", farmFlowers);
             } catch (error) {
                 // console.error("Ошибка при сохранении farmFlowers в localStorage", error);
@@ -63,7 +66,10 @@ export default function Controls({
     useEffect(() => {
         if (greenFlowers.length > 0) {
             try {
-                localStorage.setItem("greenFlowers", JSON.stringify(greenFlowers));
+                localStorage.setItem(
+                    "greenFlowers",
+                    JSON.stringify(greenFlowers)
+                );
                 // console.log("greenFlowers сохранены в localStorage:", greenFlowers);
             } catch (error) {
                 // console.error("Ошибка при сохранении greenFlowers в localStorage", error);
@@ -101,7 +107,7 @@ export default function Controls({
             setGreenFlowers([]);
             setRedoStack([]);
 
-            localStorage.clear()
+            localStorage.clear();
             // localStorage.removeItem("flowers");
             // localStorage.removeItem("farmFlowers");
             // localStorage.removeItem("greenFlowers");
@@ -113,7 +119,10 @@ export default function Controls({
     const handleUndo = () => {
         if (history.length > 0) {
             const previousState = history[history.length - 1];
-            setRedoStack([{ flowers, farmFlowers, greenFlowers }, ...redoStack]);
+            setRedoStack([
+                { flowers, farmFlowers, greenFlowers },
+                ...redoStack,
+            ]);
             setFlowers(previousState.flowers);
             setFarmFlowers(previousState.farmFlowers);
             setGreenFlowers(previousState.greenFlowers);
@@ -148,26 +157,50 @@ export default function Controls({
 
     return (
         <div className="control">
-            <button type="button" onClick={handleUndo}>
-                <span className="material-symbols-outlined">arrow_back</span>
-            </button>
-            <button type="button" onClick={handleRedo}>
-                <span className="material-symbols-outlined">arrow_forward</span>
-            </button>
-            <button type="button" onClick={handleCopy}>
-                <span className="material-symbols-outlined">content_copy</span>
-            </button>
-            <button type="button" onClick={handleClear}>
-                <span className="material-symbols-outlined">scan_delete</span>
-            </button>
-            <button type="button" onClick={handleCopy}>
-                <span className="material-symbols-outlined">file_save</span>
-            </button>
+            <ControlsButton onClick={handleUndo} sign="undo" signText="Undo" />
+            <ControlsButton onClick={handleRedo} sign="redo" signText="Redo" />
+            <ControlsButton
+                onClick={handleCopy}
+                sign="content_copy"
+                signText="Copy"
+            />
+            <ControlsButton
+                onClick={handleClear}
+                sign="scan_delete"
+                signText="Clear"
+            />
+                <ControlsButton
+                    onClick={""}
+                    sign="file_save"
+                    signText="Save"
+                   
+                />
+            
             <Link to="/SortMyFlowers/archive">
-                <button type="button">
-                    <span className="material-symbols-outlined">event_note</span>
-                </button>
+                <ControlsButton
+                    onClick={""}
+                    sign="event_note"
+                    signText="Archive"
+                     className="centered"
+                />
             </Link>
+            <Link to="/SortMyFlowers/dictionary">
+                <ControlsButton
+                    onClick={""}
+                    sign="dictionary"
+                    signText="Dictionary"
+                     className="centered"
+                />
+            </Link>
+            <Link to="/SortMyFlowers/Calendar">
+                <ControlsButton
+                    onClick={""}
+                    sign="calendar_month"
+                    signText="Calendar"
+
+                />
+            </Link>
+            
         </div>
     );
 }

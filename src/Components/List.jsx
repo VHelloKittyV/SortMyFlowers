@@ -1,6 +1,7 @@
 import "./List.css";
 import PropTypes from "prop-types";
 import InputForm from "./InputForm"; 
+import ControlsButton from "./ControlsButton";
 
 export default function List({
     flowers,
@@ -36,17 +37,16 @@ export default function List({
                 onDoubleClick={() => handleEdit(flower.id)}>
                     <span>{flower.name}</span>
                 
-                <button
-                    className="deleteItem" 
+                <ControlsButton
+                    
                     onClick={(e) => {
                         e.stopPropagation();
                         handleDeleteItem(flower.id);
                     }}
-                >
-                    <span className="material-symbols-outlined deleteItem">
-                        delete
-                    </span>
-                </button>
+                
+                    sign="delete"
+                    signText="deleteItem"
+                />
             </li>
         ));
 

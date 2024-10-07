@@ -1,0 +1,25 @@
+
+button:hover {
+    transition: 0.6s;
+}
+button:hover .signText {
+    visibility: visible;
+    transition: 0.6s;
+}
+.material-symbols-outlined {
+    font-size: 24px;
+    color: white;
+    padding: 0.2rem;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 32;
+}
+.signText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30px;
+    
+    visibility: hidden;
+    transition:0,2s;
+}
+
